@@ -22,3 +22,8 @@ Quicksort 6400 numbers.
 ```
 java Sorting -algorithm quick -size 6400
 ```
+
+Selection sort 6400 numbers.
+```
+java Sorting -algorithm selection -size 6400
+```
