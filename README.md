@@ -1,6 +1,6 @@
 This is a JFrame for demonstrating sorting algorithms to students. It is easy to play with, and is kept purposefully simple to make even beginner students feel comfortable using it.
 
-![](http://apcs.io/img/lab/sorting/quicksort.gif)
+![](http://apcs.io/img/lab/sorting/quicksort2.gif)
 
 ## Super easy setup
 
