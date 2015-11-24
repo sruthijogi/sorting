@@ -20,15 +20,21 @@ Bubble sort 100 numbers.
 java Sorting -algorithm bubble -size 100
 ```
 
+![](http://apcs.io/img/lab/sorting/bubblesort.gif)
+
 Quicksort 6400 numbers.
 ```
 java Sorting -algorithm quick -size 6400
 ```
 
+![](http://apcs.io/img/lab/sorting/quicksort2.gif)
+
 Selection sort 6400 numbers.
 ```
 java Sorting -algorithm selection -size 6400
 ```
+
+![](http://apcs.io/img/lab/sorting/selection.gif)
 
 Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animation by only showing every 1000th frame)
 ```
