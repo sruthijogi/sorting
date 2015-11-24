@@ -1,10 +1,10 @@
 # Sorting
 
-This is a simple JFrame for demonstrating sorting algorithms. The current implementation has bubble sort, selection sort, and quicksort, and it is fairly straightforward to implement others and add points where the array should be redrawn to animate the sorting.
+This is a JFrame for demonstrating sorting algorithms that is easy to extend and play with.
 
 ![](http://apcs.io/img/lab/sorting/quicksort.gif)
 
-## Easiest setup (no IDE)
+## Super easy setup
 
 ```
 git clone https://github.com/techlabeducation/sorting
@@ -13,7 +13,7 @@ javac Sorting.java
 java Sorting
 ```
 
-## Options
+## Command line arguments
 
 `-width` - change the size of the window
 `-algorithm` - choose the sorting algorithm (currently only `bubble`, `selection`, and `quick` are included)
