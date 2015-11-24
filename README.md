@@ -13,7 +13,7 @@ javac Sorting.java
 java Sorting -algorithm quick -width 800
 ```
 
-## Some examples
+## Examples
 
 Bubble sort 100 numbers.
 ```
