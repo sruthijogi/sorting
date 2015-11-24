@@ -17,7 +17,6 @@ public class Sorting extends JFrame {
 		int width = 800;
 		int speed = 1;
 		int buffer = 1;
-		int frame = 0;
 		
 		String algorithm = "quick";
 		for (int i = 0 ; i < args.length ; i++) {
@@ -31,9 +30,11 @@ public class Sorting extends JFrame {
 				width = Integer.parseInt(args[i + 1]);
 			else if (args[i].equals("-size") && i + 1 < args.length && args[i + 1].matches("\\d+"))
 				size = Integer.parseInt(args[i + 1]);
+			else if (args[i].equals("-buffer") && i + 1 < args.length && args[i + 1].matches("\\d+"))
+				buffer = Integer.parseInt(args[i + 1]);
 		}
 		
-		Sorting visualization = new Sorting(width);
+		Sorting visualization = new Sorting(width, buffer);
 		
 		int[] array = visualization.randomize(size);
 		
@@ -63,11 +64,13 @@ public class Sorting extends JFrame {
 	/**
 	 * Constructs the JFrame for the sorting animation.
 	 */
-	public Sorting(int width) {
+	public Sorting(int width, int buffer) {
 		// Create the window.
 		super("visual sort");
 		setSize(width, 22 + width);
+		
 		this.width = width;
+		this.buffer = buffer;
 		
 		setVisible(true);
 		setResizable(false);
