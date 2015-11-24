@@ -256,7 +256,7 @@ public class Sorting extends JFrame {
 		// Go to each index in the array, and fill a square in the
 		// animation with the brightness representing the magnitude of the value.
 		for (int i = 0 ; i < currentArray.length ; i++ ) {
-			g.setColor(Color.getHSBColor(HUE, SATURATION, currentArray[i] / 255f));
+			g.setColor(Color.getHSBColor(hue, saturation, currentArray[i] / 255f));
 			g.fillRect((i % size) * scale, 22 + i / size * scale, scale, scale);
 		}
 	}
