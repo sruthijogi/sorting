@@ -27,3 +27,8 @@ Selection sort 6400 numbers.
 ```
 java Sorting -algorithm selection -size 6400
 ```
+
+Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animation by only showing every 1000th frame)
+```
+java Sorting -algorithm quick -size 640000 -buffer 1000
+```
