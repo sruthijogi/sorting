@@ -15,10 +15,10 @@ java Sorting
 
 ## Command line arguments
 
-`-width` - change the size of the window
-`-algorithm` - choose the sorting algorithm (currently only `bubble`, `selection`, and `quick` are included)
-`-size` - the number of elements in the integer array being sorted
-`-buffer` - animating enormous arrays can be time consuming, so you can provide a number `n` such that only every `n`th frame is shown
+- `-width` - change the size of the window
+- `-algorithm` - choose the sorting algorithm (currently only `bubble`, `selection`, and `quick` are included)
+- `-size` - the number of elements in the integer array being sorted
+- `-buffer` - animating enormous arrays can be time consuming, so you can provide a number `n` such that only every `n`th frame is shown
 
 ## Examples
 
