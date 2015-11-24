@@ -1,4 +1,4 @@
-This is a JFrame for demonstrating sorting algorithms to students that is easy to extend and play with. We will usually start with a template of the `Sorting.java` file, and implement common algorithm like bubble sort, selection sort, and quicksort.
+This is a JFrame for demonstrating sorting algorithms to students. It is easy to play with and extend. We will usually start with a template version of the `Sorting.java` file, and implement common algorithms like bubble sort, selection sort, and quicksort.
 
 ![](http://apcs.io/img/lab/sorting/quicksort.gif)
 
@@ -48,7 +48,7 @@ Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animat
 java Sorting -algorithm quick -size 640000 -buffer 1000
 ```
 
-# Extending
+## Extending
 
 Contributions are welcome, especially from [techlab](https://techlab.education) students! Here are some sorting algorithms on the todo list:
 
