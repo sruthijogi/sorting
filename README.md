@@ -1,4 +1,4 @@
-This is a JFrame for demonstrating sorting algorithms to students. It is easy to play with and extend. We will usually start with a template version of the `Sorting.java` file, and implement common algorithms like bubble sort, selection sort, and quicksort.
+This is a JFrame for demonstrating sorting algorithms to students. It is easy to play with, and is kept purposefully simple to make even beginner students feel comfortable using it.
 
 ![](http://apcs.io/img/lab/sorting/quicksort.gif)
 
@@ -47,6 +47,10 @@ Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animat
 ```
 java Sorting -algorithm quick -size 640000 -buffer 1000
 ```
+
+## Teaching strategy
+
+We will usually start with a template version of the `Sorting.java` file, and implement common algorithms like bubble sort, selection sort, and quicksort as functions. Calling the `visualize` function with an array argument will generate a frame of the array visualization.
 
 ## Extending
 
