@@ -1,3 +1,5 @@
+package hackathon;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -11,40 +13,61 @@ public class Sorting extends JFrame {
 	
 	// Create an instance of this JFrame on run.
 	public static void main(String[] args) {
-		new Sorting();
+		
+		int size = 10000;
+		int width = 800;
+		int speed = 1;
+		
+		String algorithm = "quick";
+		for (int i = 0 ; i < args.length ; i++) {
+			if (args[i].equals("-algorithm") && i + 1 < args.length)
+				algorithm = args[i + 1].toLowerCase()
+					.replaceAll(" ", "")
+					.replaceAll("sort$", "");
+			else if (args[i].equals("-speed") && i + 1 < args.length && args[i + 1].matches("\\d+"))
+				speed = Integer.parseInt(args[i + 1]);
+			else if (args[i].equals("-width") && i + 1 < args.length && args[i + 1].matches("\\d+"))
+				width = Integer.parseInt(args[i + 1]);
+			else if (args[i].equals("-size") && i + 1 < args.length && args[i + 1].matches("\\d+"))
+				size = Integer.parseInt(args[i + 1]);
+		}
+		
+		Sorting visualization = new Sorting(width);
+		
+		int[] array = visualization.randomize(size);
+		
+		// Sort the array
+		if (algorithm.equals("bubble"))
+			visualization.bubbleSort(array, speed);
+		else if (algorithm.equals("selection"))
+			visualization.selectionSort(array, speed);
+		else if (algorithm.equals("quick"))
+			visualization.quicksort(array, speed);
+		else 
+			visualization.visualize(array);
 	}
 	
 	// Constants
-	private static final int WIDTH = 800;
 	private static final float HUE = 0.3f;
 	private static final float SATURATION = 0.7f;
 	
 	// Reference to the current array being drawn.
 	private int[] currentArray = { 0 };
+	private int width = 800;
 	
 	/**
 	 * Constructs the JFrame for the sorting animation.
 	 */
-	public Sorting() {
+	public Sorting(int width) {
 		// Create the window.
 		super("visual sort");
-		setSize(WIDTH, 22 + WIDTH);
+		setSize(width, 22 + width);
+		this.width = width;
+		
 		setVisible(true);
 		setResizable(false);
-		sort();
 	}
 	
-	/**
-	 * This is where you should add calls to your own sorting algorithms. 
-	 */
-	private void sort() {
-		int[] numbers = randomize(40000);
-		visualize(numbers);
-		bubbleSort(numbers);
-		//selectionSort(numbers);
-		//quicksort(numbers);
-	}
-
 	/**
 	 * Creates a random array of values between 0 and 255 of the given length.
 	 * @param size
@@ -60,17 +83,22 @@ public class Sorting extends JFrame {
 	}
 	
 	/**
+	 * Selection sort with visualization.
+	 */
+	public void selectionSort(int[] array, int speed) {
+		selectionSort(array, true, speed);
+	}
+	
+	/**
 	 * Selection sort.
 	 * @param array
 	 */
-	private void selectionSort(int[] array) {
+	public void selectionSort(int[] array, boolean visualize, int speed) {
 		for (int currentIndex = 0 ; currentIndex < array.length ; currentIndex++) {
-			int min = array[currentIndex],
-				minIndex = currentIndex;
+			int minIndex = currentIndex;
 			
 			for (int testIndex = currentIndex + 1 ; testIndex < array.length ; testIndex++) {
-				if (array[testIndex] < min) {
-					min = array[testIndex];
+				if (array[testIndex] < array[minIndex]) {
 					minIndex = testIndex;
 				}
 			}
@@ -79,21 +107,27 @@ public class Sorting extends JFrame {
 			array[currentIndex] = array[minIndex];
 			array[minIndex] = save;
 			
-			visualize(array, 10);
+			if (visualize)
+				visualize(array, speed);
 		}
 	}
 	
 	/**
-	 * Quicksort helper.
+	 * Quicksort helpers.
 	 */
-	private void quicksort(int[] array) {
-		quicksort(array, 0, array.length - 1);
+	public void quicksort(int[] array) {
+		quicksort(array, 0, array.length - 1, false, 0);
+	}
+	
+	// With visualization
+	public void quicksort(int[] array, int speed) {
+		quicksort(array, 0, array.length - 1, true, speed);
 	}
 	
 	/**
 	 * Quicksort.
 	 */
-	private void quicksort(int[] array, int start, int end) {
+	private void quicksort(int[] array, int start, int end, boolean visualize, int speed) {
 		if (start < end) {
 			// Pick a center value to divide the list in half
 			int pivot = array[end];
@@ -111,6 +145,9 @@ public class Sorting extends JFrame {
 					
 					// Next swap goes to the position on the right
 					nextSwap = nextSwap + 1;
+					
+					if (visualize)
+						visualize(array, speed);
 				}
 			}
 			// Swap the pivot into the center position
@@ -118,27 +155,50 @@ public class Sorting extends JFrame {
 			array[nextSwap] = pivot;
 			
 			// Sort the partitions on the left and right
-			//visualize(array, Math.min(end - start, 100));
-			quicksort(array, start, nextSwap - 1);
-			quicksort(array, nextSwap + 1, end);
+			if (visualize)
+				visualize(array, Math.min(end - start, speed * 10));
+			
+			quicksort(array, start, nextSwap - 1, 
+				visualize, speed);
+			quicksort(array, nextSwap + 1, end, 
+				visualize, speed);
 		}
+	}
+	
+	/**
+	 * Bubble sort helper.
+	 */
+	public void bubbleSort(int[] array) {
+		bubbleSort(array, false, 0);
+		visualize(array);
+	}
+	
+	// With speed
+	public void bubbleSort(int[] array, int speed) {
+		bubbleSort(array, true, speed);
 	}
 
 	/**
-	 * Bubble sort.
+	 * Bubble sort with display parameters.
 	 */
-	private void bubbleSort(int[] array) {
+	private void bubbleSort(int[] array, boolean visualize, int speed) {
 		
-		for (int j = 0 ; j < array.length ; j++) {
+		for (int repeat = 0 ; repeat < array.length ; repeat++) {
 			// Go to every index in the list except the last one
-			for (int i = 0 ; i < array.length - 1 ; i++) {
-				if (array[i] > array[i + 1]) {
-					int save = array[i];
-					array[i] = array[i + 1];
-					array[i + 1] = save;
+			for (int checkIndex = 0 ; checkIndex < array.length - 1 ; checkIndex++) {
+				if (array[checkIndex] > array[checkIndex + 1]) {
+					// Swap if there is an unordered pair
+					int save = array[checkIndex];
+					array[checkIndex] = array[checkIndex + 1];
+					array[checkIndex + 1] = save;
+					
+					if (visualize)
+						visualize(array, speed);
 				}
 			}
-			visualize(array, 1);
+			// Visualize after each pass through the list
+			if (visualize)
+				visualize(array, speed);
 		}
 		
 	}
@@ -174,7 +234,7 @@ public class Sorting extends JFrame {
 	 */
 	public void paint(Graphics g) {
 		int size = (int) Math.ceil(Math.sqrt(currentArray.length));
-		int scale = WIDTH / size;
+		int scale = width / size;
 		
 		// Go to each index in the array, and fill a square in the
 		// animation with the brightness representing the magnitude of the value.
