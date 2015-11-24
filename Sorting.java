@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -15,6 +16,8 @@ public class Sorting extends JFrame {
 		int size = 10000;
 		int width = 800;
 		int speed = 1;
+		int buffer = 1;
+		int frame = 0;
 		
 		String algorithm = "quick";
 		for (int i = 0 ; i < args.length ; i++) {
@@ -51,7 +54,11 @@ public class Sorting extends JFrame {
 	
 	// Reference to the current array being drawn.
 	private int[] currentArray = { 0 };
+	
+	// Drawing options
 	private int width = 800;
+	private int buffer = 1;
+	private int frame = 0;
 	
 	/**
 	 * Constructs the JFrame for the sorting animation.
@@ -216,14 +223,17 @@ public class Sorting extends JFrame {
 	 * @param delay
 	 */
 	public void visualize(int[] a, int delay) {
-		currentArray = a;
-		repaint();
-		
-		// Optional delay
-		if (delay > 0) {
-			try {
-				Thread.sleep(delay);
-			} catch (InterruptedException e) {}
+		frame++;
+		if (frame % buffer == 0) {
+			currentArray = a;
+			repaint();
+			
+			// Optional delay
+			if (delay > 0) {
+				try {
+					Thread.sleep(delay);
+				} catch (InterruptedException e) {}
+			}
 		}
 	}
 	
