@@ -136,6 +136,10 @@ public class Sorting extends JFrame {
 	 * Quicksort.
 	 */
 	private void quicksort(int[] array, int start, int end, boolean visualize, int speed) {
+		// Don't animate small intervals
+		if ((end - start) * 100 < array.length)
+			visualize = false;
+		
 		if (start < end) {
 			// Pick a center value to divide the list in half
 			int pivot = array[end];
