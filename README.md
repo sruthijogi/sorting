@@ -1,10 +1,10 @@
-# Sorting
-
-This is a JFrame for demonstrating sorting algorithms that is easy to extend and play with.
+This is a JFrame for demonstrating sorting algorithms to students that is easy to extend and play with. We will usually start with a template of the `Sorting.java` file, and implement common algorithm like bubble sort, selection sort, and quicksort.
 
 ![](http://apcs.io/img/lab/sorting/quicksort.gif)
 
 ## Super easy setup
+
+You don't need an IDE to run this code, just a command line.
 
 ```
 git clone https://github.com/techlabeducation/sorting
