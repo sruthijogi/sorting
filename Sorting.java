@@ -49,15 +49,13 @@ public class Sorting extends JFrame {
 			visualization.visualize(array);
 	}
 	
-	// Constants
-	private static final float HUE = 0.3f;
-	private static final float SATURATION = 0.7f;
-	
 	// Reference to the current array being drawn.
 	private int[] currentArray = { 0 };
 	
 	// Drawing options
 	private int width = 800;
+	private float hue = 0.3f;
+	private float saturation = 0.7f;
 	private int buffer = 1;
 	private int frame = 0;
 	
@@ -71,6 +69,10 @@ public class Sorting extends JFrame {
 		
 		this.width = width;
 		this.buffer = buffer;
+		
+		// Randomize hue/saturation
+		hue = (float) Math.random();
+		saturation = (float) Math.random();
 		
 		setVisible(true);
 		setResizable(false);
