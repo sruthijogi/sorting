@@ -47,3 +47,18 @@ Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animat
 ```
 java Sorting -algorithm quick -size 640000 -buffer 1000
 ```
+
+# Extending
+
+Contributions are welcome, especially from [techlab](https://techlab.education) students! Here are some sorting algorithms on the todo list:
+
+- [insertion sort](http://sorting-algorithms.com/insertion-sort)
+- [shell sort](http://sorting-algorithms.com/shell-sort)
+- [merge sort](http://sorting-algorithms.com/merge-sort)
+- [heap sort](http://sorting-algorithms.com/heap-sort)
+- [quick3](http://sorting-algorithms.com/quick-sort-3-way)
+- [dual-pivot quicksort](http://permalink.gmane.org/gmane.comp.java.openjdk.core-libs.devel/2628)
+- [comb sort](https://en.wikipedia.org/wiki/Comb_sort)
+- [radix sort](https://en.wikipedia.org/wiki/Radix_sort)
+- [bogo sort](https://en.wikipedia.org/wiki/Bogosort)
+- [American flag sort](https://en.wikipedia.org/wiki/American_flag_sort)
