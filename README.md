@@ -32,7 +32,8 @@ java Sorting -algorithm bubble -size 100
 
 ![](http://apcs.io/img/lab/sorting/bubblesort.gif)
 
-Insertion sort 100 numbers with 100 ms between each swap, making it easier to see how the algorithm works.
+Insertion sort 100 numbers with 100 ms between each swap, making it easier to see how the algorithm works. Adjusting the speed with the `-speed` flag gives enough time to point at individual elements of the array and watch them move into place, and lets students intuitively understand how insertion sort works better on an array that is mostly sorted.
+
 ```
 java Sorting -algorithm insertion -size 100 -speed 100
 ```
