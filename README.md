@@ -67,7 +67,6 @@ We will usually start with a template version of the `Sorting.java` file, and im
 
 Contributions are welcome, especially from [techlab](https://techlab.education) students! Here are some sorting algorithms on the todo list:
 
-- [insertion sort](http://sorting-algorithms.com/insertion-sort)
 - [shell sort](http://sorting-algorithms.com/shell-sort)
 - [merge sort](http://sorting-algorithms.com/merge-sort)
 - [heap sort](http://sorting-algorithms.com/heap-sort)
