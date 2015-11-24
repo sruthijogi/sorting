@@ -10,7 +10,7 @@ This is a simple JFrame for demonstrating sorting algorithms. The current implem
 git clone https://github.com/techlabeducation/sorting
 cd sorting
 javac Sorting.java
-java Sorting -algorithm quick -width 800
+java Sorting
 ```
 
 ## Examples
