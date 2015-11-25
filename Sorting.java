@@ -2,7 +2,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * A simple JFrame for visualizing sorting algorithms.
@@ -89,7 +89,7 @@ public class Sorting extends JFrame {
 		// Create the window.
 		super("visual sort");
 		setSize(width, 22 + width);
-
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		// Store display parameters
 		this.width = width;
 		this.buffer = buffer;
