@@ -59,6 +59,13 @@ Quicksort 640,000 numbers (notice the `-buffer` parameter to speed up the animat
 java Sorting -algorithm quick -size 640000 -buffer 1000
 ```
 
+![](http://zacklukem.github.io/web/mergesort.gif)
+
+Mergesort 10000 numbers.
+```
+java Sorting -algorithm merge -size 10000
+```
+
 ## Teaching strategy
 
 We will usually start with a template version of the `Sorting.java` file, and implement common algorithms like bubble sort, selection sort, insertion sort, and quicksort. Calling the `visualize` function with an array argument will generate a frame of the array visualization.

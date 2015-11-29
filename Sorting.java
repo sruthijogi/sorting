@@ -2,7 +2,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 /**
  * A simple JFrame for visualizing sorting algorithms.
@@ -66,6 +66,8 @@ public class Sorting extends JFrame {
 			visualization.quicksort(array, speed);
 		else if (algorithm.equals("insertion"))
 			visualization.insertionSort(array, speed);
+		else if (algorithm.equals("merge"))
+			visualization.mergeSort(array, speed);
 		else
 			visualization.visualize(array);
 	}
@@ -89,7 +91,7 @@ public class Sorting extends JFrame {
 		// Create the window.
 		super("visual sort");
 		setSize(width, 22 + width);
-
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		// Store display parameters
 		this.width = width;
 		this.buffer = buffer;
@@ -235,6 +237,54 @@ public class Sorting extends JFrame {
 		}
 	}
 
+	private int[] tempMergArr;
+
+	private void mergeSort(int[] array, boolean visualize, int speed) {
+		doMergeSort(array, 0, array.length-1, visualize, speed);
+	}
+
+	private void doMergeSort(int[] array, int lowerIndex, int higherIndex, boolean visualize, int speed) {
+
+		if (lowerIndex < higherIndex) {
+			int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+			// Below step sorts the left side of the array
+			doMergeSort(array, lowerIndex, middle, visualize, speed);
+			// Below step sorts the right side of the array
+			doMergeSort(array, middle + 1, higherIndex, visualize, speed);
+			// Now merge both sides
+			mergeParts(array, lowerIndex, middle, higherIndex);
+
+			if (visualize)
+				visualize(array, speed);
+		}
+	}
+
+	private void mergeParts(int[] array, int lowerIndex, int middle, int higherIndex) {
+
+		for (int i = lowerIndex; i <= higherIndex; i++) {
+			tempMergArr[i] = array[i];
+		}
+		int i = lowerIndex;
+		int j = middle + 1;
+		int k = lowerIndex;
+		while (i <= middle && j <= higherIndex) {
+			if (tempMergArr[i] <= tempMergArr[j]) {
+				array[k] = tempMergArr[i];
+				i++;
+			} else {
+				array[k] = tempMergArr[j];
+				j++;
+			}
+			k++;
+		}
+		while (i <= middle) {
+			array[k] = tempMergArr[i];
+			k++;
+			i++;
+		}
+
+	}
+
 	/**
 	 * 	Helper methods for calling sorting algorithms with or without animations.
 	 */
@@ -260,6 +310,11 @@ public class Sorting extends JFrame {
 	public void insertionSort(int[] array) {
 		insertionSort(array, false, 0);
 		visualize(array);
+	}
+
+	public void mergeSort(int[] array, int speed) {
+		tempMergArr = new int[array.length];
+		mergeSort(array, true, speed);
 	}
 
 	public void insertionSort(int[] array, int speed) {
