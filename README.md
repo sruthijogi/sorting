@@ -61,7 +61,7 @@ java Sorting -algorithm quick -size 640000 -buffer 1000
 
 ![](http://zacklukem.github.io/web/mergesort.gif)
 
-Mergesort 10000 numbers.
+Mergesort 10000 numbers. (Contributed by my student Zachary Mayhew, @zacklukem)
 ```
 java Sorting -algorithm merge -size 10000
 ```
@@ -75,7 +75,6 @@ We will usually start with a template version of the `Sorting.java` file, and im
 Contributions are welcome, especially from [techlab](https://techlab.education) students! Here are some sorting algorithms on the todo list:
 
 - [shell sort](http://sorting-algorithms.com/shell-sort)
-- [merge sort](http://sorting-algorithms.com/merge-sort)
 - [heap sort](http://sorting-algorithms.com/heap-sort)
 - [quick3](http://sorting-algorithms.com/quick-sort-3-way)
 - [dual-pivot quicksort](http://permalink.gmane.org/gmane.comp.java.openjdk.core-libs.devel/2628)
