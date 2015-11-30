@@ -237,8 +237,11 @@ public class Sorting extends JFrame {
 		}
 	}
 
+	/**
+	 * Contributed by Zachary Mayhew (@zacklukem)
+	 */
 	private int[] tempMergArr;
-
+	
 	private void mergeSort(int[] array, boolean visualize, int speed) {
 		doMergeSort(array, 0, array.length-1, visualize, speed);
 	}
