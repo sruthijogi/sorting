@@ -31,7 +31,7 @@ public class SortingAlgorithms extends JFrame {
 	 * @param width - the width of the window
 	 * @param buffer - a number n such that every nth frame is drawn (default 1)
 	 */
-	public Sorting(int width, int buffer) {
+	public SortingAlgorithms(int width, int buffer) {
 		// Create the window.
 		super("visual sort");
 		setSize(width, 22 + width);
