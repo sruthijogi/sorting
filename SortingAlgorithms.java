@@ -50,7 +50,7 @@ public class SortingAlgorithms extends JFrame {
 	 * Creates a random array of values, where each value is between 0 and 255.
 	 * @param size - the length of the array
 	 */
-	private int[] randomize(int size) {
+	public int[] randomize(int size) {
 		// Create an array of that size
 		int[] a = new int[size];
 		// Go to each position in the array
