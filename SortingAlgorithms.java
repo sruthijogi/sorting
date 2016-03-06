@@ -8,10 +8,11 @@ import javax.swing.*;
  * A simple JFrame for visualizing sorting algorithms.
  * @author keshav (keshav@techlabeducation.com)
  */
-public class Sorting extends JFrame {
+public class SortingAlgorithms extends JFrame {
 
 	public static void main(String[] args) {
-
+		Sorting s = new Sorting(500, 1);
+		s.visualize(new int[] { 1, 50, 100, 120, 150, 180, 200, 225, 250, 255 });
 		
 	}
 
@@ -30,7 +31,7 @@ public class Sorting extends JFrame {
 	 * @param width - the width of the window
 	 * @param buffer - a number n such that every nth frame is drawn (default 1)
 	 */
-	public Sorting(int width, int buffer, float hue, float saturation) {
+	public Sorting(int width, int buffer) {
 		// Create the window.
 		super("visual sort");
 		setSize(width, 22 + width);
@@ -38,8 +39,8 @@ public class Sorting extends JFrame {
 		// Store display parameters
 		this.width = width;
 		this.buffer = buffer;
-		this.hue = hue;
-		this.saturation = saturation;
+		this.hue = (float) Math.random();
+		this.saturation = (float) Math.random();
 
 		setVisible(true);
 		setResizable(false);
